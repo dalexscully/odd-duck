@@ -12,36 +12,32 @@
 
 <body>
   <main class="grid container">
-    <header class="header">
+    <div class="grid-item1" style="background-color: rgba(126, 146, 149, 0.652)">
       <h1>Odd Duck Company Products</h1>
-    </header>
-
-    <div class="images">
-      <section id="img-container">
+      </div>
+    <div class="grid-item2" id="img-container" style="background-color: #b6b6b6">
+       
         <img id="imgone" src="" alt="">
         <img id="imgtwo" src="" alt="">
         <img id="imgthree" src="" alt="">
+    </div>
+   
+    <h3 class="picker">Choose the product you like best! You only have 25 number of times to pick!</h3>
+    <div class="grid-item3" style="background-color: #ffffff;"
+
+    <!-- <sidebar class="results"> 
+      <!-- <div id="show-results-btn"><button>View Results</button></div> -->
+      
+      <section id="results-container">
+        <canvas id="myChart"></canvas>
       </section>
-    </div>
-    <div class="info">
-
-      <p id="hello">Fellow Odd Duck employees! We would like your participation on giving us your input on our next new
-        product design. We likely tally all votes. The product that gets the highest votes will likely be our next
-        product to invest in. Let us all colaborate with our R&D team on deciding on the next state of the art product.
-        We need everyone particaption in assiting our company with the next business venture. Thank you all for your
-        contribution</p>
-    </div>
-
-    <sidebar class="results">
-      <div id="show-results-btn"><button>View Results</button></div>
-      <ul id="results-container">
-      </ul>
-      </div>
-    </sidebar>
-
+    <!-- </sidebar> -->
+    
   </main>
   <footer>&copy; 2022 Odd Duck Products</footer>
-
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  
   <script src="js/app.js"></script>
 </body>
 
