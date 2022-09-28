@@ -80,7 +80,7 @@ function renderChart() {
     productVotes.push(productArray[i].clicks);
     productViews.push(productArray[i]).views;
   }
-
+  Chart.defaults.font.size = 14;
   let myChartObj = {
     type: 'bar',
     data: {
@@ -129,7 +129,6 @@ function renderChart() {
       }
     }
   };
-
   new Chart(canvasElem, myChartObj);
 
 }
@@ -154,55 +153,61 @@ function handleClick(event) {
 
   // TODO: decrement the vote count
   voteCount--;
-
   // TODO: call the render img to reload new images
   renderImgs();
-
   // TODO: after voting rounds have ended... end the clicks!
   if (voteCount === 0) {
     imgContainer.removeEventListener('click', handleClick);
     renderChart();
+
+    // ************ LOCAL STORAGE BEGINS HERE ***************
+
+    // STEP 1: ADD TO LOCAL STORAGE
+    let stringifiedProducts = JSON.stringify(productArray);
+    console.log('strinified products >>> ', stringifiedProducts);
+
+    // STEP 2: ADD TO LOCAL STORAGE
+    localStorage.setItem('products', stringifiedProducts);
   }
 }
 
-// function handleShowResults() {
-//   // TODO: Display results - once there are no more votes left
-//   if (voteCount === 0) {
-//     for (let i = 0; i < productArray.length; i++) {
-//       let liElem = document.createElement('li');
-//       liElem.textContent = `${productArray[i].name}. number of views: ${productArray[i].views}. number of clicks: ${productArray[i].clicks}`;
-//       resultsContainer.appendChild(liElem);
-//     }
-//     showresultsBtn.removeEventListener('click', handleShowResults);
-//   }
-// }
+// STEP 3: PULL DATA OUT OF LOCAL STORAGE
+let retrievedProducts = localStorage.getItem('myProducts');
+console.log('retrievedProducts >>> ', retrievedProducts);
 
-// ****** EXECUTABLE CODE ********
+// STEP 4: PARSE MY DATA INTO CODE MY APP CAN USE
+
+let parsedProducts = JSON.parse(retrievedProducts);
+
+// ************ EXECUTABLE CODE ************
 
 // ! OBJECT CREATION
 
-new Product('bag');
-new Product('banana');
-new Product('bathroom');
-new Product('boots');
-new Product('breakfast');
-new Product('bubblegum');
-new Product('chair');
-new Product('cthulhu');
-new Product('dog-duck');
-new Product('dragon');
-new Product('pen');
-new Product('pet-sweep');
-new Product('scissors');
-new Product('shark');
-new Product('sweep', 'png');
-new Product('tauntaun');
-new Product('unicorn');
-new Product('water-can');
-new Product('wine-glass');
+if (retrievedProducts) {
+  productArray = parsedProducts;
+} else {
+  new Product('bag');
+  new Product('banana');
+  new Product('bathroom');
+  new Product('boots');
+  new Product('breakfast');
+  new Product('bubblegum');
+  new Product('chair');
+  new Product('cthulhu');
+  new Product('dog-duck');
+  new Product('dragon');
+  new Product('pen');
+  new Product('pet-sweep');
+  new Product('scissors');
+  new Product('shark');
+  new Product('sweep', 'png');
+  new Product('tauntaun');
+  new Product('unicorn');
+  new Product('water-can');
+  new Product('wine-glass');
+}
 
 renderImgs();
-
 // renderChart ();
 
 imgContainer.addEventListener('click', handleClick);
