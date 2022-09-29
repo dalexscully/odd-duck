@@ -111,11 +111,11 @@ function renderChart() {
         data: productViews,
         label: '# of Views',
         backgroundColor: [
-          'blue'
+          'lightyblue'
 
         ],
         borderColor: [
-          'blue'
+          'lightblue'
         ],
         borderWidth: 10
       }
