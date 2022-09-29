@@ -78,7 +78,7 @@ function renderChart() {
   for (let i = 0; i < productArray.length; i++) {
     productName.push(productArray[i].name);
     productVotes.push(productArray[i].clicks);
-    productViews.push(productArray[i]).views;
+    productViews.push(productArray[i].views);
   }
   Chart.defaults.font.size = 14;
   let myChartObj = {
@@ -133,9 +133,7 @@ function renderChart() {
 
 }
 
-
 // ***** EVENT HANDLERS **********
-
 
 function handleClick(event) {
   console.dir(event.target);
