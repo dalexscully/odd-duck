@@ -11,21 +11,20 @@
   padding: 30px;
 }
 
-
-
 body {
-  background-color: rgba(218, 191, 191, 0.718);
+  background-color: rgba(191, 195, 218, 0.711);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1 {
+.grid-item0:hover {
+  background-color: #53a7ea;
   font-size: 5vw;
   text-align: center;
   background: linear-gradient(to right #8a6565, #f48fb1, #7e57c2);
   font-family: 'Exo 2' sans-serif;
   font-size: 2em;
   padding: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .grid-item2 {
@@ -49,10 +48,10 @@ main {
 }
 
 img {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   border-style: solid;
-  border-width: 4px;
+  border-width: 6px;
 }
 
 .picker {
@@ -65,8 +64,14 @@ img {
   border-style: dashed;
 }
 
-footer {
-  height: 100px;
+.threed:hover {
+  box-shadow: 
+          1px 1px #53a7ea,
+          2px 2px #53a7ea,
+          3px 3px #53a7ea;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+  height: 50px;
   font-size: 1.5em;
   text-align: center;
 }
